@@ -1,8 +1,8 @@
 import React from 'react';
+import Classes from "../styles/styles.module.scss";
 import { Link } from "react-router-dom";
 function CardItem({mealDetail, meal}){
-    // console.log(mealDetail.idMeal)
-    // console.log(meal)
+
     const handleLike = (item) => {
         console.log(item)
         const storedFavorites = localStorage.getItem('favorites');
@@ -33,22 +33,22 @@ function CardItem({mealDetail, meal}){
     }
     const sliceData = ingredients.slice(0,4)
     return(
-        <div className="recipe-card">
-            <div className="card-container">
-                <div className="card-content">
-                <div className="title"><h2>{meal?.strMeal}</h2></div>
-                <div className="description">
+        <div className={Classes.recipecard}>
+            <div className={Classes.cardcontainer}>
+                <div className={Classes.cardcontent}>
+                <div className={Classes.title}><h2>{meal?.strMeal}</h2></div>
+                <div className={Classes.description}>
                     <p>{mealDetail?.strInstructions}</p>
-                    <h3 className="title-ingredients"><p>Ingredients</p></h3>
-                    <div className="ingredients-list">
+                    <h3 className={Classes.titleingredients}><p>Ingredients</p></h3>
+                    <div className={Classes.ingredientslist}>
                         {sliceData.map((ingredient, idx) => (
-                                <div className="ingredient" key={idx}>
-                                    <div className="card-ingredient-img">
-                                        <div className="card-ingredient-container">
+                                <div className={Classes.ingredient} key={idx}>
+                                    <div className={Classes.cardingredientimg}>
+                                        <div className={Classes.cardingredientcontainer}>
                                             <img src="assets/olive-oil.svg" />
                                         </div>
                                     </div>
-                                    <div className="ingredient-desc-list">
+                                    <div className={Classes.ingredientdesclist}>
                                         <span>{ingredient.name}</span>
                                         <p>{ingredient.measure}</p>
                                     </div>
@@ -56,12 +56,12 @@ function CardItem({mealDetail, meal}){
                             ))}
                     </div>
                 </div>
-                <div className="list-button">
+                <div className={Classes.listbutton}>
                     <Link to={`/detail/${mealDetail.idMeal}`}>Detail</Link>
                     <button onClick={() => handleLike(mealDetail)}>Add to favorites</button>
                 </div>
                 </div>
-                <img src={mealDetail.strMealThumb} alt={mealDetail.strMeal} className="img-card"/>
+                <img src={mealDetail.strMealThumb} alt={mealDetail.strMeal} className={Classes.imgcard}/>
             </div>   
             </div>
     )

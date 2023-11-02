@@ -12,14 +12,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* border: 1px solid red !important; */
 }
 
 main{
-    /* background-color: var(--background-color); */
-    /* background-color: pink; */
     overflow-x: hidden;
-    /* background-color: var(--background-color); */
     margin: 5px;
     border-radius: 5px;
     height: 100vh;
@@ -42,6 +38,16 @@ header{
     gap: 50px;
     list-style: none;
     padding: 20px 50px;
+}
+
+ul button{
+    background-color: white;
+    border: none;
+}
+
+ul button:hover{
+    color: black;
+    cursor: pointer;;
 }
 
 .categories ul li a{
@@ -132,7 +138,7 @@ header{
     width: 9.57675rem;
     height: 1.28138rem;
     flex-shrink: 0;
-    margin: 2rem 0;
+    margin: .1rem 0;
 }
 
 .title-ingredients p{
@@ -208,8 +214,10 @@ header{
 
 .list-recipies{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 30px;
+    background-color: pink;
+    margin: 0 40px;
 }
 
 .card-recipies{
@@ -251,6 +259,13 @@ header{
 .card-grid{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    /* gap: 20px; */
+}
+
+.listfavorites{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Membuat 4 kolom dengan lebar yang sama */ 
+    justify-content: center;
+    padding: 0 20px;
 }
 

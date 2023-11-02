@@ -1,20 +1,19 @@
+
 import { Card, CardMedia, CardContent, Typography } from '@mui/material';
 function CardRecipiesItem({ title, imageUrl }){
     //console.log(title)
     return(
         <Card style={{  
-            maxWidth: '150px', 
-            margin: '10px', 
-            position: 'relative' }}>
+            maxWidth: '200px', 
+            margin: '10px'}}>
         <CardMedia
             component="img"
             style={{
                 width: '100px',
                 height: '100px',
                 borderRadius: '50%', // membuat gambar bulat
-                position: 'relative', // posisi absolut
-                top: '-10px', // pindahkan ke atas sebanyak 50px// pusatkan gambar
-                zIndex: 2 ,
+                top: '-10px',
+                margin: 'auto' // pindahkan ke atas sebanyak 50px// pusatkan gambar
             }}
             image={imageUrl}
             alt={title}

@@ -1,10 +1,13 @@
 import React from 'react';
+import Classes from "../styles/styles.module.scss";
 import { useEffect, useState } from 'react';
 import CardItem from '../components/CardItem';
 import CardRecipiesItem from '../components/CardRecipiesItem';
 import { getAllCategories, getAllRecipies, getDetailData, getFullDetailData } from '../domain/api';
 import Header from '../components/Header';
 import { Link } from 'react-router-dom';
+
+import Navigation from '../components/Navigation';
 function HomePage(){
     const [categories, setCategories] = useState([])
     const [meals, setMeals] = useState([])
@@ -65,33 +68,24 @@ function HomePage(){
         }
     }
 
-    // console.log(mealDetails)
-    // console.log(mealDetails)
-    // console.log(recipies.strMeal);
-
     return(
         <>
             <Header />
-            <div className="categories">
-                <ul>
-                    {categories.map(category => (
-                        <li key={category.idCategory}><button onClick={() => fetchData(category.strCategory)}>{category.strCategory}</button></li>
-                    ))}
-                    <li><Link to={'/favorite'}>Favorite</Link></li>
-                </ul>
-            </div>
+            <Navigation categories={categories} fetchData={fetchData} />
 
-            <div className='slider-container'>
+            <div className={Classes.slidercontainer}>
             {mealDetails.map((detail, idx) => (
                     <CardItem key={idx} mealDetail={detail} meal={meals[idx]} />
                 ))}
             </div>
-
-            <h3 className='title-recipies'><p>More recipies</p></h3>
-            <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
+            
+            <div className={Classes.listrecipies}>
+            <h3 className={Classes.titlerecipies}><p>More recipies</p></h3>
+            <div style={{ display: 'flex', justifyContent: 'start', paddingLeft: '50px' }}>
                 {recipies.map((recipe, index) => (
                     <CardRecipiesItem key={index} title={recipe.strMeal} imageUrl={recipe.strMealThumb} />
             ))}
+            </div>
         </div>
         
             

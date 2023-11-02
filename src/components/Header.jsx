@@ -1,8 +1,9 @@
 import CardItem from "./CardItem";
+import Classes from "../styles/styles.module.scss";
 
 function Header(){
     return(
-        <header>Delicacy</header>
+        <header className={Classes.header}>Delicacy</header>
     )
 }
 
